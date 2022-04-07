@@ -1,9 +1,10 @@
-import flask
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, Flask
+from flask_cors import CORS
 
-app = flask.Flask(__name__, static_url_path='',
-                  static_folder='static',
-                  template_folder='template')
+app = Flask(__name__, static_url_path='',
+            static_folder='static',
+            template_folder='template')
+CORS(app)
 app.config["DEBUG"] = True
 
 
@@ -21,5 +22,6 @@ def user(name):
 def admin():
     return redirect(url_for("home"))
 
+
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(debug=True)
