@@ -8,9 +8,9 @@ class report:
         self.df = None
 
         # Dates are set as date format if they have something different from 0
-        if start_date == "0" or end_date == "0":
-            self.start_date = start_date
-            self.end_date = end_date
+        if str(start_date) == "0" or str(end_date) == "0":
+            self.start_date = str(start_date)
+            self.end_date = str(end_date)
         else:
             self.start_date = datetime.strptime(start_date, "%d/%m/%Y")
             self.end_date = datetime.strptime(end_date, "%d/%m/%Y")
