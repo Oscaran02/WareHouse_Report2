@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='',
             static_folder='static',
             template_folder='templates')
 CORS(app)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 app.config['host'] = '0.0.0.0'
 app.config['port'] = 5000
 app.config['UPLOAD_FOLDER'] = 'uploads'
