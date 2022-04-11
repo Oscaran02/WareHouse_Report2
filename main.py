@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='',
             static_folder='static',
             template_folder='templates')
 CORS(app)
-app.config["DEBUG"] = False
+app.config["DEBUG"] = True
 app.config['host'] = '0.0.0.0'
 app.config['port'] = 5000
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -19,9 +19,14 @@ def graph():
     return render_template("graph.html")
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
 @app.route("/")
 def default():
-    return redirect(url_for("upload"))
+    return redirect(url_for("dashboard"))
 
 
 @app.route("/home")
@@ -42,7 +47,7 @@ def upload_file():
         f.filename = "data." + f.filename
         filename = (os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         f.save(filename)
-        return redirect(url_for('graph'))
+        return redirect(url_for('dashboard'))
 
 
 @app.route("/data", methods=['GET'])
