@@ -13,11 +13,6 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/<name>")
-def user(name):
-    return f"Hello-- {name}!"
-
-
 @app.route("/admin")
 def admin():
     return redirect(url_for("home"))

@@ -13,15 +13,14 @@
         <canvas id="myChart" width="200" height="80"></canvas>
         <script>
         var ctx = document.getElementById("myChart");
-        x = [1.8, 2.4, 3.1, 4.1, 5.5, 6.6, 7.7, 8.8, 9.9, 10.1];
         $.getJSON('http://127.0.0.1:5001/data', function(data2) {
             var data2 = data2.slice(1);
             data2 = data2.slice(0, -1);
             data2 = data2.split(',');
             data2 = data2.map(Number);
             console.log(data2);
-            //delete last element of array
             data2.pop();
+
 
             var myChart = new Chart(ctx, {
                 type: 'horizontalBar',
