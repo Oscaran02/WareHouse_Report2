@@ -1,14 +1,5 @@
 var ctx = document.getElementById("myChart");
-$.getJSON('http://127.0.0.1:5001/data', function(data2) {
-    // Setting the data for the chart.
-    // Converting data from string to number.
-    data2 = data2.slice(1);
-    data2 = data2.slice(0, -1);
-    data2 = data2.split(',');
-    data2 = data2.map(Number);
-    data2.pop();
-
-
+$.getJSON('http://127.0.0.1:5000/data', function(data2) {
     const myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
