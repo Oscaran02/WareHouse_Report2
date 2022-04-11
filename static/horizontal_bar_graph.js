@@ -6,7 +6,7 @@ $.getJSON('http://127.0.0.1:5000/data', function(data2) {
             labels: ["Foto", "Registro Datos", "Bodega", "Transito"],
             datasets: [{
                 axis: 'x',
-                label: 'Minutes',
+                label: 'Minutos',
                 data: data2,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

@@ -19,7 +19,7 @@ class report:
 
     # Method to get the data from Excel file and return a dataframe
     def get_data_from_excel(self):
-        self.df = pandas.read_excel("data/data.xlsx",
+        self.df = pandas.read_excel("uploads/data.xlsx",
                                     header=0,
                                     usecols="B,AI:AK,AM,AO,AP",
                                     parse_dates=['Fecha ingreso'],
@@ -33,7 +33,7 @@ class report:
         custom_date_parser = lambda x: datetime.strptime(x, "%d/%m/%Y")
 
         # Import data from csv and convert to date format
-        self.df = pandas.read_csv('data/data.csv',
+        self.df = pandas.read_csv('uploads/data.csv',
                                   parse_dates=['Fecha registro', 'Fecha ingreso'],
                                   date_parser=custom_date_parser,
                                   sep=";",

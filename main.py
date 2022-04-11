@@ -1,3 +1,4 @@
+import os
 from flask import render_template, redirect, url_for, Flask, request
 from flask_cors import CORS
 from models import report as rprt
@@ -33,8 +34,10 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         f.filename = f.filename.split('.')[1]
-        f.save("data."+f.filename)
-        return 'file uploaded successfully'
+        f.filename = "data."+f.filename
+        filename = (os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
+        f.save(filename)
+        return 'Archivo subido exitosamente'
 
 
 @app.route("/data", methods=['GET'])
