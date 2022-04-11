@@ -12,7 +12,7 @@ $.getJSON('http://127.0.0.1:5001/data', function(data2) {
     const myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
-            labels: ["Tiempo para foto", "Delta foto-registro datos ", "Delta registro datos-ubicación", "Delta ubicación bodega-tránsito"],
+            labels: ["Foto", "Registro Datos", "Bodega", "Transito"],
             datasets: [{
                 axis: 'x',
                 label: 'Minutes',

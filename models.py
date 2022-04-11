@@ -1,0 +1,76 @@
+from datetime import datetime
+import matplotlib.pyplot as plt
+import pandas
+
+
+class report:
+    def __init__(self, start_date, end_date, country):
+        self.df = None
+
+        # Dates are set as date format if they have something different from 0
+        if start_date == "0" or end_date == "0":
+            self.start_date = start_date
+            self.end_date = end_date
+        else:
+            self.start_date = datetime.strptime(start_date, "%d/%m/%Y")
+            self.end_date = datetime.strptime(end_date, "%d/%m/%Y")
+
+        self.country = country
+
+    # Method to get the data from Excel file and return a dataframe
+    def get_data_from_excel(self):
+        self.df = pandas.read_excel("data/data.xlsx",
+                                    header=0,
+                                    usecols="B,AI:AK,AM,AO,AP",
+                                    parse_dates=['Fecha ingreso'],
+                                    decimal=",",
+                                    engine="openpyxl"
+                                    )
+
+    # Method to get the data from csv file and return a dataframe
+    def get_data_from_csv(self):
+        # Date format
+        custom_date_parser = lambda x: datetime.strptime(x, "%d/%m/%Y")
+
+        # Import data from csv and convert to date format
+        self.df = pandas.read_csv('data/data.csv',
+                                  parse_dates=['Fecha registro', 'Fecha ingreso'],
+                                  date_parser=custom_date_parser,
+                                  sep=";",
+                                  decimal=",")
+
+    # Method to graph the data in local python
+    def graphing_statistics(self):
+        # Graphing statistics
+        fig, ax = plt.subplots(figsize=(15, 8))
+        plt.barh(["Foto", "Registro Datos", "Bodega", "Transito"], self.df[0:4])
+        ax.set_ylabel('Categoria')
+        ax.set_xlabel('Tiempo (minutos)')
+        ax.set_title("Tiempo promedio en bodega\n")
+        ax.grid(axis='x', color='gray', linestyle='dashed')
+        plt.show()
+        # TODO grafica de tiempo en bodega
+
+    # Groups the data grouped by country
+    def group_by_country(self):
+        self.df = self.df.groupby("País")
+        self.df = self.df.get_group(self.country)
+
+    # returns dataframe with the data grouped by dates given in the parameter
+    def group_by_dates(self):
+        # If one of the dates is 0, it means that the user didn't select a date, so we will use the entire dataframe
+        if self.start_date == "0" or self.end_date == "0":
+            pass
+        else:
+            self.df = self.df[self.start_date <= self.df["Fecha ingreso"]]
+            self.df = self.df[self.end_date >= self.df["Fecha ingreso"]]
+
+    # Returns the average times in the warehouse
+    def average_per_column(self):
+        self.df = self.df.mean(axis=0, skipna=True, numeric_only=True)
+
+    def set_data(self):
+        self.get_data_from_excel()
+        self.group_by_country()
+        self.group_by_dates()
+        self.average_per_column()
