@@ -7,6 +7,9 @@
     <orderEntry type="library" name="jquery-3.5.0" level="application" />
     <orderEntry type="library" name="Chart.js" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.5.0" level="application" />
+    <orderEntry type="library" name="feather-icons" level="application" />
+    <orderEntry type="library" name="chart.js" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">

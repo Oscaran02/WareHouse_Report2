@@ -36,6 +36,12 @@
       },
       options: {
         indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: 'Tiempo promedio en cada etapa'
+          }
+        }
       }
     });
   });

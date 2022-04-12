@@ -27,7 +27,6 @@ class report:
                                     engine="openpyxl"
                                     )
 
-
     # Method to graph the data in local python
     def graphing_statistics(self):
         # Graphing statistics
