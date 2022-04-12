@@ -5,7 +5,7 @@
 
   feather.replace({ 'aria-hidden': 'true' })
 
-  let ctx = document.getElementById("myChart");
+  let ctx = document.getElementById("tiemposProm");
   $.getJSON('/data', function(data2) {
     const myChart = new Chart(ctx, {
       type: 'horizontalBar',
