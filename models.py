@@ -27,17 +27,6 @@ class report:
                                     engine="openpyxl"
                                     )
 
-    # Method to get the data from csv file and return a dataframe
-    def get_data_from_csv(self):
-        # Date format
-        custom_date_parser = lambda x: datetime.strptime(x, "%d/%m/%Y")
-
-        # Import data from csv and convert to date format
-        self.df = pandas.read_csv('uploads/data.csv',
-                                  parse_dates=['Fecha registro', 'Fecha ingreso'],
-                                  date_parser=custom_date_parser,
-                                  sep=";",
-                                  decimal=",")
 
     # Method to graph the data in local python
     def graphing_statistics(self):

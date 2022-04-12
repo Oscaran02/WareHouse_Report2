@@ -14,11 +14,6 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'xlsx', 'csv'}
 
 
-@app.route("/graph")
-def graph():
-    return render_template("graph.html")
-
-
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
@@ -55,7 +50,3 @@ def data():
     report_data = rprt("0", "0", "Colombia")
     report_data.set_data()
     return report_data.df.to_json(orient='records')
-
-
-if __name__ == '__main__':
-    app.run()
