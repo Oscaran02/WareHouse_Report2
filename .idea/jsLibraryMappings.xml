@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$" libraries="{Chart.js, jquery-3.5.0}" />
+=======
+    <file url="file://$PROJECT_DIR$" libraries="{bootstrap, chart.js, feather-icons, jquery-3.5.0}" />
+>>>>>>> origin/main
   </component>
 </project>

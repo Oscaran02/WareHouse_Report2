@@ -5,8 +5,8 @@
 
   feather.replace({ 'aria-hidden': 'true' })
 
-  let ctx = document.getElementById("myChart");
-  $.getJSON('http://127.0.0.1:5000/data', function(data2) {
+  let ctx = document.getElementById("tiemposProm");
+  $.getJSON('/data', function(data2) {
     const myChart = new Chart(ctx, {
       type: 'horizontalBar',
       data: {
@@ -36,6 +36,12 @@
       },
       options: {
         indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: 'Tiempo promedio en cada etapa'
+          }
+        }
       }
     });
   });

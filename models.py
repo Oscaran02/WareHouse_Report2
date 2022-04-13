@@ -19,6 +19,7 @@ class report:
 
     # Method to get the data from Excel file and return a dataframe
     def get_data_from_excel(self):
+        #TODO make a better filter, get all data here
         self.df = pandas.read_excel("uploads/data.xlsx",
                                     header=0,
                                     usecols="B,AI:AK,AM,AO,AP",
@@ -26,18 +27,6 @@ class report:
                                     decimal=",",
                                     engine="openpyxl"
                                     )
-
-    # Method to get the data from csv file and return a dataframe
-    def get_data_from_csv(self):
-        # Date format
-        custom_date_parser = lambda x: datetime.strptime(x, "%d/%m/%Y")
-
-        # Import data from csv and convert to date format
-        self.df = pandas.read_csv('uploads/data.csv',
-                                  parse_dates=['Fecha registro', 'Fecha ingreso'],
-                                  date_parser=custom_date_parser,
-                                  sep=";",
-                                  decimal=",")
 
     # Method to graph the data in local python
     def graphing_statistics(self):
@@ -53,8 +42,8 @@ class report:
 
     # Groups the data grouped by country
     def group_by_country(self):
-        self.df = self.df.groupby("País")
-        self.df = self.df.get_group(self.country)
+        print(self.df)
+        self.df = self.df[self.df["País"] == self.country]
 
     # returns dataframe with the data grouped by dates given in the parameter
     def group_by_dates(self):
@@ -65,12 +54,25 @@ class report:
             self.df = self.df[self.start_date <= self.df["Fecha ingreso"]]
             self.df = self.df[self.end_date >= self.df["Fecha ingreso"]]
 
+    # Filters the dataframe
+    def filter_data(self):
+        self.group_by_country()
+        self.group_by_dates()
+
     # Returns the average times in the warehouse
     def average_per_column(self):
-        self.df = self.df.mean(axis=0, skipna=True, numeric_only=True)
+        # TODO only average the data in the warehouse, not all the data
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)
 
     def set_data(self):
+        # TODO delete or change this method
         self.get_data_from_excel()
         self.group_by_country()
         self.group_by_dates()
         self.average_per_column()
+
+
+if __name__ == "__main__":
+    report = report("0", "0", "Colombia")
+    report.set_data()
+    report.graphing_statistics()
