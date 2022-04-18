@@ -66,7 +66,7 @@ class report:
 
     # Returns the international courier - data6
     def international_courier(self):
-        return self.df["Courier \ninternacional"].value_counts()
+        return self.df["Courier internacional"].value_counts()
 
     # Returns the alliance of the packages - data7
     def alliance_of_package(self):
@@ -82,7 +82,7 @@ class report:
 
     # Returns the average times in routes - data10
     def average_time_in_routes(self):
-        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega", "Delta ubicación bodega-tránsito", "Delta tránsito-ubicación destino"]]
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo en bodega", "Tiempo tránsito", "Delta aduana-entrega (# Dias hábiles)", "Tiempo entrega (# Dias hábiles)"]]
 
     def set_data(self):
         self.get_data_from_excel()
