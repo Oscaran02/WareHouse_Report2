@@ -66,4 +66,3 @@ class report:
     def set_data(self):
         self.get_data_from_excel()
         self.filter_data()
-        #ESTOY EN LA NEW BRANCH
