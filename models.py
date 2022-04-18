@@ -22,7 +22,6 @@ class report:
         # TODO make a better filter, get all data here
         self.df = pandas.read_excel("uploads/data.xlsx",
                                     header=0,
-                                    usecols="B,AI:AK,AM,AO,AP",
                                     parse_dates=['Fecha ingreso'],
                                     decimal=",",
                                     engine="openpyxl"
@@ -59,9 +58,8 @@ class report:
         self.group_by_dates()
 
     # Returns the average times in the warehouse a
-    def average_per_column(self):
-        # TODO only average the data in the warehouse, not all the data
-        return self.df.mean(axis=0, skipna=True, numeric_only=True)
+    def average_per_column_in_warehouse(self):
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega", "Delta ubicación bodega-tránsito"]]
 
     def set_data(self):
         self.get_data_from_excel()

@@ -45,8 +45,9 @@ def upload_file():
         return redirect(url_for('dashboard'))
 
 
-@app.route("/data", methods=['GET'])
-def data():
+# Primera gráfica
+@app.route("/promedios_bodega", methods=['GET'])
+def promedios_bodega():
     report_data = rprt("0", "0", "Colombia")
     report_data.set_data()
-    return report_data.average_per_column().to_json(orient='records')
+    return report_data.average_per_column_in_warehouse().to_json(orient='records')
