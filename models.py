@@ -1,5 +1,4 @@
 from datetime import datetime
-import matplotlib.pyplot as plt
 import pandas
 
 
@@ -27,18 +26,6 @@ class report:
                                     engine="openpyxl"
                                     )
 
-    # Method to graph the data in local python
-    def graphing_statistics(self):
-        # Graphing statistics
-        fig, ax = plt.subplots(figsize=(15, 8))
-        plt.barh(["Foto", "Registro Datos", "Bodega", "Transito"], self.df[0:4])
-        ax.set_ylabel('Categoria')
-        ax.set_xlabel('Tiempo (minutos)')
-        ax.set_title("Tiempo promedio en bodega\n")
-        ax.grid(axis='x', color='gray', linestyle='dashed')
-        plt.show()
-        # TODO grafica de tiempo en bodega
-
     # Groups the data grouped by country
     def group_by_country(self):
         self.df = self.df[self.df["País"] == self.country]
@@ -57,9 +44,45 @@ class report:
         self.group_by_country()
         self.group_by_dates()
 
-    # Returns the average times in the warehouse a
-    def average_per_column_in_warehouse(self):
+    # Returns the average times in the warehouse - data1
+    def average_times_in_warehouse(self):
         return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega", "Delta ubicación bodega-tránsito"]]
+
+    # Returns the states of the packages - data2
+    def state_of_package(self):
+        return self.df["Estado"].value_counts()
+
+    # Returns the states of the packages in transit - data3
+    def state_of_package_in_transit(self):
+        return self.df["Estado Tránsito"].value_counts()
+
+    # Returns the pre-alerts - data4
+    def prealerts(self):
+        return self.df["Prealerta"].value_counts()
+
+    # Returns the origin of the packages - data5
+    def origin_of_package(self):
+        return self.df["Origen"].value_counts()
+
+    # Returns the international courier - data6
+    def international_courier(self):
+        return self.df["Courier \ninternacional"].value_counts()
+
+    # Returns the alliance of the packages - data7
+    def alliance_of_package(self):
+        return self.df["Alianza"].value_counts()
+
+    # Returns the local courier - data8
+    def local_courier(self):
+        return self.df["Courier local"].value_counts()
+
+    # Returns the department of the customer - data9
+    def department_of_customer(self):
+        return self.df["Departamento"].value_counts()
+
+    # Returns the average times in routes - data10
+    def average_time_in_routes(self):
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega", "Delta ubicación bodega-tránsito", "Delta tránsito-ubicación destino"]]
 
     def set_data(self):
         self.get_data_from_excel()
