@@ -49,4 +49,4 @@ def upload_file():
 def data():
     report_data = rprt("0", "0", "Colombia")
     report_data.set_data()
-    return report_data.df.to_json(orient='records')
+    return report_data.average_per_column().to_json(orient='records')

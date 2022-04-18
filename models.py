@@ -19,7 +19,7 @@ class report:
 
     # Method to get the data from Excel file and return a dataframe
     def get_data_from_excel(self):
-        #TODO make a better filter, get all data here
+        # TODO make a better filter, get all data here
         self.df = pandas.read_excel("uploads/data.xlsx",
                                     header=0,
                                     usecols="B,AI:AK,AM,AO,AP",
@@ -42,7 +42,6 @@ class report:
 
     # Groups the data grouped by country
     def group_by_country(self):
-        print(self.df)
         self.df = self.df[self.df["País"] == self.country]
 
     # returns dataframe with the data grouped by dates given in the parameter
@@ -65,14 +64,5 @@ class report:
         return self.df.mean(axis=0, skipna=True, numeric_only=True)
 
     def set_data(self):
-        # TODO delete or change this method
         self.get_data_from_excel()
-        self.group_by_country()
-        self.group_by_dates()
-        self.average_per_column()
-
-
-if __name__ == "__main__":
-    report = report("0", "0", "Colombia")
-    report.set_data()
-    report.graphing_statistics()
+        self.filter_data()
