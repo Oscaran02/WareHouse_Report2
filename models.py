@@ -58,7 +58,7 @@ class report:
         self.group_by_country()
         self.group_by_dates()
 
-    # Returns the average times in the warehouse
+    # Returns the average times in the warehouse a
     def average_per_column(self):
         # TODO only average the data in the warehouse, not all the data
         return self.df.mean(axis=0, skipna=True, numeric_only=True)
