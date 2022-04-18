@@ -18,7 +18,6 @@ class report:
 
     # Method to get the data from Excel file and return a dataframe
     def get_data_from_excel(self):
-        # TODO make a better filter, get all data here
         self.df = pandas.read_excel("uploads/data.xlsx",
                                     header=0,
                                     parse_dates=['Fecha ingreso'],
@@ -66,7 +65,7 @@ class report:
 
     # Returns the international courier - data6
     def international_courier(self):
-        return self.df["Courier internacional"].value_counts()
+        return self.df["Courier \ninternacional"].value_counts()
 
     # Returns the alliance of the packages - data7
     def alliance_of_package(self):
@@ -82,7 +81,7 @@ class report:
 
     # Returns the average times in routes - data10
     def average_time_in_routes(self):
-        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo en bodega", "Tiempo tránsito", "Delta aduana-entrega (# Dias hábiles)", "Tiempo entrega (# Dias hábiles)"]]
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo en bodega", "Tiempo tránsito", "Delta aduana-entrega \n (# Dias hábiles)", "Tiempo entrega \n(# Dias hábiles)"]]
 
     def set_data(self):
         self.get_data_from_excel()

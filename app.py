@@ -51,51 +51,52 @@ def promedios_bodega():
 # Segunda gráfica - Estado
 @app.route("/data2", methods=['GET'])
 def data2():
-    pass
+    return report_data.state_of_package().to_json()
 
 
 # Tercera gráfica - Estado transito
 @app.route("/data3", methods=['GET'])
 def data3():
-    pass
+    return report_data.state_of_package_in_transit().to_json()
 
 
 # Cuarta gráfica - Prealerta
 @app.route("/data4", methods=['GET'])
 def data4():
-    pass
+    return report_data.prealerts().to_json()
 
 
 # Quinta gráfica - Origen
 @app.route("/data5", methods=['GET'])
 def data5():
-    pass
+    return report_data.origin_of_package().to_json()
 
 
 # Sexta gráfica - Courier internacional
 @app.route("/data6", methods=['GET'])
 def data6():
-    pass
+    return report_data.international_courier().to_json()
 
 
 # Séptima gráfica - Alianzas
 @app.route("/data7", methods=['GET'])
 def data7():
-    pass
+    return report_data.alliance_of_package().to_json()
 
 
 # Octava gráfica - Courier local
 @app.route("/data8", methods=['GET'])
 def data8():
-    pass
+    return report_data.local_courier().to_json()
 
 
 # Novena gráfica - Departamentos
 @app.route("/data9", methods=['GET'])
 def data9():
-    pass
+    return report_data.department_of_customer().to_json()
+
 
 # Décima gráfica - Tiempos totales
 @app.route("/data10", methods=['GET'])
 def data10():
-    pass
+    return report_data.average_time_in_routes().to_json()
