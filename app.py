@@ -7,26 +7,21 @@ app = Flask(__name__, static_url_path='',
             static_folder='static',
             template_folder='templates')
 CORS(app)
-app.config["DEBUG"] = False
+app.config["DEBUG"] = True
 app.config['host'] = '0.0.0.0'
 app.config['port'] = 5000
 app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['ALLOWED_EXTENSIONS'] = {'xlsx', 'csv'}
+app.config['ALLOWED_EXTENSIONS'] = {'xlsx'}
 
 
+report_data = rprt("0", "0", "Colombia")
+report_data.set_data()
+
+@app.route("/")
+@app.route("/home")
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
-
-
-@app.route("/")
-def default():
-    return redirect(url_for("dashboard"))
-
-
-@app.route("/home")
-def home():
-    return default()
 
 
 @app.route("/upload")
@@ -48,6 +43,46 @@ def upload_file():
 # Primera gráfica
 @app.route("/promedios_bodega", methods=['GET'])
 def promedios_bodega():
-    report_data = rprt("0", "0", "Colombia")
-    report_data.set_data()
     return report_data.average_per_column_in_warehouse().to_json(orient='records')
+
+
+# Segunda gráfica
+@app.route("/data2", methods=['GET'])
+def data2():
+    pass
+
+
+# Tercera gráfica
+@app.route("/data3", methods=['GET'])
+def data3():
+    pass
+
+
+# Cuarta gráfica
+@app.route("/data4", methods=['GET'])
+def data4():
+    pass
+
+
+# Quinta gráfica
+@app.route("/data5", methods=['GET'])
+def data5():
+    pass
+
+
+# Sexta gráfica
+@app.route("/data6", methods=['GET'])
+def data6():
+    pass
+
+
+# Séptima gráfica
+@app.route("/data7", methods=['GET'])
+def data7():
+    pass
+
+
+# Octava gráfica
+@app.route("/data8", methods=['GET'])
+def data8():
+    pass
