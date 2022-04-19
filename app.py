@@ -35,6 +35,7 @@ def upload_file():
         f.filename = "data." + f.filename
         filename = (os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         f.save(filename)
+        sleep(2)
         report_data.set_data()
         return redirect(url_for('dashboard'))
 
