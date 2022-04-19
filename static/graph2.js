@@ -6,56 +6,38 @@
     feather.replace({ 'aria-hidden': 'true' })
 
     let ctx = document.getElementById("graph2");
-    $.getJSON('/data2', function(data3) {
+    $.getJSON('/data2', function(data) {
         // make a pie chart
-        let myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: data3.labels,
-                datasets: [{
-                    data: data3.data,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-        });
-        /*
+        // print the keys of the data2
+        let keys = Object.keys(data);
+        let values = Object.values(data);
         new Chart(ctx, {
-            type: 'pie',
-            label: '',
+            type: 'bar',
             data: {
+                labels: keys,
                 datasets: [{
-                    label: 'Tiempo promedio',
-                    data: data2,
+                    axis: 'x',
+                    label: 'Número de paquetes',
+                    data: values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
                 }]
             },
             options: {
+                elements: {
+                    bar: {
+                        borderWidth: 2,
+                    }
+                },
                 responsive: true,
+                indexAxis: 'x',
                 plugins: {
                     legend: {
-                        position: 'top',
+                        position: 'right',
                     },
-                    title: {
-                        display: true,
-                        text: 'Tiempo promedio en cada etapa'
-                    }
                 }
             },
-        });*/
+        });
     });
 })()
