@@ -45,7 +45,9 @@ class report:
 
     # Returns the average times in the warehouse - data1
     def average_times_in_warehouse(self):
-        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega", "Delta ubicación bodega-tránsito"]]
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[
+            ["Tiempo para foto", "Delta foto-registro datos", "Delta registro datos-ubicación bodega",
+             "Delta ubicación bodega-tránsito"]]
 
     # Returns the states of the packages - data2
     def state_of_package(self):
@@ -81,7 +83,9 @@ class report:
 
     # Returns the average times in routes - data10
     def average_time_in_routes(self):
-        return self.df.mean(axis=0, skipna=True, numeric_only=True)[["Tiempo en bodega", "Tiempo tránsito", "Delta aduana-entrega \n (# Dias hábiles)", "Tiempo entrega \n(# Dias hábiles)"]]
+        return self.df.mean(axis=0, skipna=True, numeric_only=True)[
+            ["Tiempo en bodega", "Tiempo tránsito", "Delta aduana-entrega \n (# Dias hábiles)",
+             "Tiempo entrega \n(# Dias hábiles)"]]
 
     def set_data(self):
         self.get_data_from_excel()
