@@ -24,6 +24,7 @@ report_data.set_data()
 @app.route("/home")
 @app.route("/dashboard")
 def dashboard():
+    report_data.set_data()
     return render_template("dashboard.html")
 
 
