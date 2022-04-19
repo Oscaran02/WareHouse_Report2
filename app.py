@@ -17,13 +17,13 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'xlsx'}
 
 report_data = report("0", "0", "Colombia")
-report_data.set_data()
 
 
 @app.route("/")
 @app.route("/home")
 @app.route("/dashboard")
 def dashboard():
+    report_data.set_data()
     return render_template("dashboard.html")
 
 
