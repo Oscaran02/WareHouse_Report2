@@ -22,7 +22,7 @@ class report:
                                     header=0,
                                     parse_dates=['Fecha ingreso'],
                                     decimal=",",
-                                    engine="openpyxl"
+                                    engine="openpyxl",
                                     )
 
     # Groups the data grouped by country
