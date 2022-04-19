@@ -88,5 +88,7 @@ class report:
              "Tiempo entrega \n(# Dias hábiles)"]]
 
     def set_data(self):
+        print("Setting data...")
         self.get_data_from_excel()
+        print("Data set")
         self.filter_data()
