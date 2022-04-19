@@ -1,5 +1,9 @@
 from datetime import datetime
+from time import sleep
+
 import pandas
+import warnings
+warnings.simplefilter("ignore")
 
 
 class report:
@@ -90,5 +94,6 @@ class report:
     def set_data(self):
         print("Setting data...")
         self.get_data_from_excel()
+        sleep(5)
         print("Data set")
         self.filter_data()
