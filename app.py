@@ -84,26 +84,26 @@ def data6():
 # Séptima gráfica - Alianzas
 @app.route("/data7", methods=['GET'])
 def data7():
-    sleep(0.5)
+    sleep(0.6)
     return report_data.alliance_of_package().to_json()
 
 
 # Octava gráfica - Courier local
 @app.route("/data8", methods=['GET'])
 def data8():
-    sleep(0.5)
+    sleep(0.7)
     return report_data.local_courier().to_json()
 
 
 # Novena gráfica - Departamentos
 @app.route("/data9", methods=['GET'])
 def data9():
-    sleep(0.5)
+    sleep(0.8)
     return report_data.department_of_customer().to_json()
 
 
 # Décima gráfica - Tiempos totales
 @app.route("/data10", methods=['GET'])
 def data10():
-    sleep(0.5)
+    sleep(0.9)
     return report_data.average_time_in_routes().to_json()
