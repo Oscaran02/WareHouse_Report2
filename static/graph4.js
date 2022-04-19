@@ -11,7 +11,7 @@
         // print the keys of the data2
         let keys = Object.keys(data);
         let values = Object.values(data);
-        let myChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: keys,
