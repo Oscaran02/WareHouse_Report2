@@ -18,8 +18,8 @@
                     axis: 'x',
                     label: 'Tiempo promedio (días)',
                     data: values,
-                    backgroundColor: 'rgba(235,184,54,0.2)',
-                    borderColor: 'rgb(235,184,54,1)',
+                    backgroundColor: 'rgb(255,183,0)',
+                    borderColor: 'rgba(235,184,54,0.51)',
                     borderWidth: 2
                 }]
             },

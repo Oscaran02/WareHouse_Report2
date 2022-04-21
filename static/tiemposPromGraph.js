@@ -15,7 +15,7 @@
           axis: 'x',
           label: 'Tiempo promedio',
           data: data2,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          backgroundColor: 'rgb(255,0,54)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 2
         }]

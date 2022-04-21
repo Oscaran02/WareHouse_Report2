@@ -18,8 +18,8 @@
                 datasets: [{
                     data: values,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(6,255,0,0.2)',
+                        'rgb(255,0,54)',
+                        'rgb(2,255,0)',
                     ],
                 }]
             },

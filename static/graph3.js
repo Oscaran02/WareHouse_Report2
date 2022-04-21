@@ -19,7 +19,7 @@
                     axis: 'x',
                     label: 'Número de paquetes',
                     data: values,
-                    backgroundColor: 'rgba(33,121,27,0.2)',
+                    backgroundColor: 'rgb(2,107,0)',
                     borderColor: 'rgba(6,255,0,0.56)',
                     borderWidth: 2
                 }]
