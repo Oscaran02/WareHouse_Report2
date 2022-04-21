@@ -17,6 +17,4 @@ def init_app(config_file_path: str = "settings.py", **config: Any) -> Flask:
         from . import api
 
         app.register_blueprint(api.api_bp)
-
-
-    return app
+        return app
