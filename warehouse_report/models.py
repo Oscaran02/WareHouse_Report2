@@ -22,7 +22,7 @@ class report:
 
     # Method to get the data from Excel file and return a dataframe
     def get_data_from_excel(self):
-        self.df = pandas.read_excel("uploads/data.xlsx",
+        self.df = pandas.read_excel("warehouse_report/uploads/data.xlsx",
                                     header=0,
                                     parse_dates=['Fecha ingreso'],
                                     decimal=",",

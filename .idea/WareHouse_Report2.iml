@@ -15,9 +15,10 @@
     <orderEntry type="library" name="chart.js" level="application" />
   </component>
   <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/warehouse_report/templates" />
       </list>
     </option>
   </component>
